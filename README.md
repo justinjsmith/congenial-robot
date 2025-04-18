@@ -5,7 +5,10 @@ A full-stack web application with a React frontend and FastAPI backend, deployed
 ## Deployment
 
 The application is deployed and available at:
-https://d13v6lzwthonv1.cloudfront.net
+
+- Frontend: https://d13v6lzwthonv1.cloudfront.net
+- Backend API: https://zi7cyedvd2.execute-api.us-east-1.amazonaws.com/prod
+  - Health check: https://zi7cyedvd2.execute-api.us-east-1.amazonaws.com/prod/healthz
 
 ## Architecture
 
@@ -18,8 +21,8 @@ https://d13v6lzwthonv1.cloudfront.net
 
 - S3 bucket: `congenial-robot-frontend` for static frontend hosting
 - Lambda function: `congenial-robot-backend` for the backend API
-- API Gateway: Exposes the Lambda function at `/api/*` endpoints
-- CloudFront distribution: Serves both frontend and backend through a single domain
+- API Gateway: Exposes the Lambda function endpoints
+- CloudFront distribution: Serves the frontend application
 
 ## Local Development
 
@@ -52,3 +55,7 @@ The application is automatically deployed when changes are merged to the main br
 3. Deploys the frontend to S3
 4. Updates the Lambda function code
 5. Invalidates the CloudFront cache to ensure the latest content is served
+
+## Known Issues
+
+- The CloudFront distribution is currently configured to serve the frontend only. API requests should be made directly to the API Gateway URL.
