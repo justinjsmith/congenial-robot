@@ -1,0 +1,362 @@
+{
+  "version": "41.0.0",
+  "artifacts": {
+    "CongenialRobotStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "CongenialRobotStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "CongenialRobotStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://533252222160/us-east-1",
+      "properties": {
+        "templateFile": "CongenialRobotStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::533252222160:role/cdk-hnb659fds-deploy-role-533252222160-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::533252222160:role/cdk-hnb659fds-cfn-exec-role-533252222160-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-533252222160-us-east-1/ab189049e47562e94917ba3e7942b60a8f523b8c7afc8d8fbe3a2f7f7d2b99e0.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "CongenialRobotStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::533252222160:role/cdk-hnb659fds-lookup-role-533252222160-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "CongenialRobotStack.assets"
+      ],
+      "metadata": {
+        "/CongenialRobotStack/FrontendBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FrontendBucketEFE2E19C"
+          }
+        ],
+        "/CongenialRobotStack/FrontendBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FrontendBucketPolicy1DFF75D9"
+          }
+        ],
+        "/CongenialRobotStack/FrontendBucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FrontendBucketAutoDeleteObjectsCustomResourceDB860B32"
+          }
+        ],
+        "/CongenialRobotStack/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/CongenialRobotStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/CongenialRobotStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/CongenialRobotStack/OriginAccessIdentity/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OriginAccessIdentityDF1E3CAC"
+          }
+        ],
+        "/CongenialRobotStack/BackendFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendFunctionServiceRoleCA938F8D"
+          }
+        ],
+        "/CongenialRobotStack/BackendFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendFunction63314140"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiED3D8698"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiDeploymentC69759165214af3d48843cc51e3d21dcd504b960"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiDeploymentStageprodC399B877"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiEndpoint94865037"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Default/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiOPTIONS05F613F2"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Default/{proxy+}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiproxyB9640C5A"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Default/{proxy+}/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiproxyOPTIONSDEC3F501"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Default/{proxy+}/ANY/ApiPermission.CongenialRobotStackBackendApi25CDB0D4.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiproxyANYApiPermissionCongenialRobotStackBackendApi25CDB0D4ANYproxy0DC45FD8"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Default/{proxy+}/ANY/ApiPermission.Test.CongenialRobotStackBackendApi25CDB0D4.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiproxyANYApiPermissionTestCongenialRobotStackBackendApi25CDB0D4ANYproxyA6146EB7"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Default/{proxy+}/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiproxyANY8806A636"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Default/ANY/ApiPermission.CongenialRobotStackBackendApi25CDB0D4.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiANYApiPermissionCongenialRobotStackBackendApi25CDB0D4ANYB93B1675"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Default/ANY/ApiPermission.Test.CongenialRobotStackBackendApi25CDB0D4.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiANYApiPermissionTestCongenialRobotStackBackendApi25CDB0D4ANYE07367B1"
+          }
+        ],
+        "/CongenialRobotStack/BackendApi/Default/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BackendApiANY7D1CBA3B"
+          }
+        ],
+        "/CongenialRobotStack/Distribution/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Distribution830FAC52"
+          }
+        ],
+        "/CongenialRobotStack/DeployFrontend/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DeployFrontendAwsCliLayerD774ED8F"
+          }
+        ],
+        "/CongenialRobotStack/DeployFrontend/CustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DeployFrontendCustomResource3E02C3B7"
+          }
+        ],
+        "/CongenialRobotStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-singleton",
+            "data": true
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+            "data": 2
+          }
+        ],
+        "/CongenialRobotStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+          }
+        ],
+        "/CongenialRobotStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF"
+          }
+        ],
+        "/CongenialRobotStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536"
+          }
+        ],
+        "/CongenialRobotStack/BuildProject/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BuildProjectRoleAA92C755"
+          }
+        ],
+        "/CongenialRobotStack/BuildProject/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BuildProjectRoleDefaultPolicy3E9F248C"
+          }
+        ],
+        "/CongenialRobotStack/BuildProject/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BuildProject097C5DB7"
+          }
+        ],
+        "/CongenialRobotStack/Pipeline": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "V1 pipeline type is implicitly selected when `pipelineType` is not set. If you want to use V2 type, set `PipelineType.V2`. [ack: @aws-cdk/aws-codepipeline:unspecifiedPipelineType]",
+            "trace": [
+              "Annotations.addMessage (/home/ubuntu/repos/congenial-robot/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1608)",
+              "Annotations.addWarningV2 (/home/ubuntu/repos/congenial-robot/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:825)",
+              "new Pipeline (/home/ubuntu/repos/congenial-robot/cdk/node_modules/aws-cdk-lib/aws-codepipeline/lib/pipeline.js:1:8002)",
+              "new CongenialRobotStack (/home/ubuntu/repos/congenial-robot/cdk/lib/congenial-robot-stack.ts:129:22)",
+              "Object.<anonymous> (/home/ubuntu/repos/congenial-robot/cdk/bin/cdk-app.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1565:14)",
+              "Module.m._compile (/home/ubuntu/repos/congenial-robot/cdk/node_modules/ts-node/src/index.ts:1618:23)",
+              "node:internal/modules/cjs/loader:1708:10",
+              "Object.require.extensions.<computed> [as .ts] (/home/ubuntu/repos/congenial-robot/cdk/node_modules/ts-node/src/index.ts:1621:12)",
+              "Module.load (node:internal/modules/cjs/loader:1318:32)",
+              "Function._load (node:internal/modules/cjs/loader:1128:12)",
+              "TracingChannel.traceSync (node:diagnostics_channel:322:14)",
+              "wrapModuleLoad (node:internal/modules/cjs/loader:219:24)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:170:5)",
+              "phase4 (/home/ubuntu/repos/congenial-robot/cdk/node_modules/ts-node/src/bin.ts:649:14)",
+              "bootstrap (/home/ubuntu/repos/congenial-robot/cdk/node_modules/ts-node/src/bin.ts:95:10)",
+              "main (/home/ubuntu/repos/congenial-robot/cdk/node_modules/ts-node/src/bin.ts:55:10)",
+              "Object.<anonymous> (/home/ubuntu/repos/congenial-robot/cdk/node_modules/ts-node/src/bin.ts:800:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1565:14)",
+              "Object.<anonymous> (node:internal/modules/cjs/loader:1708:10)",
+              "Module.load (node:internal/modules/cjs/loader:1318:32)",
+              "Function._load (node:internal/modules/cjs/loader:1128:12)",
+              "TracingChannel.traceSync (node:diagnostics_channel:322:14)",
+              "wrapModuleLoad (node:internal/modules/cjs/loader:219:24)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:170:5)",
+              "node:internal/main/run_main_module:36:49"
+            ]
+          }
+        ],
+        "/CongenialRobotStack/Pipeline/ArtifactsBucketEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineArtifactsBucketEncryptionKey01D58D69"
+          }
+        ],
+        "/CongenialRobotStack/Pipeline/ArtifactsBucketEncryptionKeyAlias/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineArtifactsBucketEncryptionKeyAlias5C510EEE"
+          }
+        ],
+        "/CongenialRobotStack/Pipeline/ArtifactsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineArtifactsBucket22248F97"
+          }
+        ],
+        "/CongenialRobotStack/Pipeline/ArtifactsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineArtifactsBucketPolicyD4F9712A"
+          }
+        ],
+        "/CongenialRobotStack/Pipeline/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineRoleD68726F7"
+          }
+        ],
+        "/CongenialRobotStack/Pipeline/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineRoleDefaultPolicyC7A05455"
+          }
+        ],
+        "/CongenialRobotStack/Pipeline/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineC660917D"
+          }
+        ],
+        "/CongenialRobotStack/Pipeline/Source/GitHub_Source/WebhookResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineSourceGitHubSourceWebhookResource8EECEFFF"
+          }
+        ],
+        "/CongenialRobotStack/Pipeline/Build/Build/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineBuildCodePipelineActionRoleD77A08E6"
+          }
+        ],
+        "/CongenialRobotStack/Pipeline/Build/Build/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineBuildCodePipelineActionRoleDefaultPolicyC9CB73F8"
+          }
+        ],
+        "/CongenialRobotStack/DistributionDomainName": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DistributionDomainName"
+          }
+        ],
+        "/CongenialRobotStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/CongenialRobotStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/CongenialRobotStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "CongenialRobotStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  },
+  "minimumCliVersion": "2.1005.0"
+}
