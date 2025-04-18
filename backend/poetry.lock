@@ -291,6 +291,20 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
+name = "mangum"
+version = "0.19.0"
+description = "AWS Lambda support for ASGI applications"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "mangum-0.19.0-py3-none-any.whl", hash = "sha256:e500b35f495d5e68ac98bc97334896d6101523f2ee2c57ba6a61893b65266e59"},
+    {file = "mangum-0.19.0.tar.gz", hash = "sha256:e388e7c491b7b67970f8234e46fd4a7b21ff87785848f418de08148f71cf0bd6"},
+]
+
+[package.dependencies]
+typing-extensions = "*"
+
+[[package]]
 name = "markdown-it-py"
 version = "3.0.0"
 description = "Python port of markdown-it. Markdown parsing, done right!"
@@ -1092,4 +1106,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "ac5468cd2ebc2272d29e508cb588e1fb2733e4944bd6aeb0f5884e5c64246bd4"
+content-hash = "f87cb8d4cf0f622b7cfd60aaf5d789855593ca9b22d232a59ef9e36c64421a08"

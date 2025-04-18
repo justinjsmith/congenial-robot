@@ -1,0 +1,67 @@
+name: AWS Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: poetry install
+
+      - name: Package backend for Lambda
+        working-directory: ./backend
+        run: |
+          mkdir -p package
+          cd package
+          pip install -t . -r <(poetry export -f requirements.txt)
+          cd ..
+          zip -r lambda_function.zip package app
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy frontend to S3
+        run: aws s3 sync ./frontend/dist/ s3://congenial-robot-frontend/ --delete
+
+      - name: Update Lambda function
+        working-directory: ./backend
+        run: aws lambda update-function-code --function-name congenial-robot-backend --zip-file fileb://lambda_function.zip
+
+      - name: Invalidate CloudFront cache
+        run: |
+          DISTRIBUTION_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[?Origins.Items[?Id=='S3Origin']].Id" --output text)
+          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
